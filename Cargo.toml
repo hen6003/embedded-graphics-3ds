@@ -1,8 +1,10 @@
 [package]
-name = "snake-3ds"
+name = "embedded-graphics-3ds"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
 ctru-rs = { git = "https://github.com/Meziu/ctru-rs.git" }
-getrandom = "*"
+ctru-sys = { git = "https://github.com/Meziu/ctru-rs.git" }
+embedded-graphics = "*"
+embedded-graphics-core = "*"
