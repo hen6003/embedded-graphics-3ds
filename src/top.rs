@@ -1,9 +1,6 @@
+use ctru::gfx::{Screen, Side, TopScreen};
 use embedded_graphics::{pixelcolor::Rgb888, prelude::*, primitives::Rectangle};
-
 use std::cell::RefMut;
-
-use ctru::gfx::Side;
-use ctru::gfx::TopScreen;
 
 pub struct TopDisplay3DS<'a> {
     size: (u32, u32),
@@ -20,6 +17,18 @@ impl<'a> TopDisplay3DS<'a> {
             side: Side::Left,
             screen,
         }
+    }
+
+    pub fn double_buffering(&mut self, state: bool) {
+        self.screen.set_double_buffering(state)
+    }
+
+    pub fn wide_mode(&mut self, state: bool) {
+        self.screen.set_wide_mode(state)
+    }
+
+    pub fn enable_3d(&mut self, state: bool) {
+        self.screen.set_3d_enabled(state)
     }
 
     pub fn side(&mut self, side: Side) {

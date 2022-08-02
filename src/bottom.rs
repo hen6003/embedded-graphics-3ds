@@ -1,9 +1,6 @@
+use ctru::gfx::{BottomScreen, Screen};
 use embedded_graphics::{pixelcolor::Rgb888, prelude::*, primitives::Rectangle};
-
 use std::cell::RefMut;
-
-use ctru::gfx::BottomScreen;
-use ctru::gfx::Side;
 
 pub struct BottomDisplay3DS<'a> {
     size: (u32, u32),
@@ -18,6 +15,10 @@ impl<'a> BottomDisplay3DS<'a> {
             size: (frame_buffer.width.into(), frame_buffer.height.into()),
             screen,
         }
+    }
+
+    pub fn double_buffering(&mut self, state: bool) {
+        self.screen.set_double_buffering(state)
     }
 }
 
